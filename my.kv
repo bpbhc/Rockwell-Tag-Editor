@@ -1,0 +1,72 @@
+# Filename: my.kv
+
+<MyGrid>:
+
+    plcip: plcip
+    plctag: plctag
+    ipstatus: ipstatus
+    tagread: tagread
+    tagwrite: tagwrite
+    statusread: statusread
+    plcpgmname: plcpgmname
+
+    GridLayout:
+        cols:1
+        size: root.width, root.height
+
+        GridLayout:
+            cols:1
+            padding: 40
+
+            Label:
+                text: "PLC IP Address: "
+
+            TextInput:
+                id: plcip
+                multinline:False
+
+            Button:
+                text: "Check IP"
+                on_press: root.checkipbtn()
+           
+            Label:
+                text:"Program Name"
+
+            Label:
+                id: plcpgmname
+
+            Label:
+                id: ipstatus
+
+            Button:
+                text: "Fetch Tags"
+                on_press: root.fetchtags()
+
+            Label:
+                text: "Tag: "
+
+            TextInput:
+                id: plctag
+                multiline: False
+
+            Button:
+                text: "Retrieve Tag Value"
+                on_press: root.retrievebtn()
+
+            Label:
+                id: tagread
+
+            TextInput:
+                id: tagwrite
+                multiline: False
+
+            Button:
+                text: "Store Value"
+                on_press: root.storebtn()
+
+            Label:
+                id: statusread
+
+            Button:
+                text:"Clear"
+                on_press: root.clearbtn()
